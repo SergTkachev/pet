@@ -1,0 +1,62 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="create_sheet_data" author="db@user">
+        <createTable tableName="sheet_data">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="sheet_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="faculty_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="student_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="faculty_exam_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex indexName="sheet_data_idx0" tableName="sheet_data">
+            <column name="sheet_id"/>
+        </createIndex>
+        <addForeignKeyConstraint constraintName="fk_sheet_data_sheet_id"
+                                 baseTableName="sheet_data"
+                                 baseColumnNames="sheet_id"
+                                 referencedTableName="sheet"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+        <addForeignKeyConstraint constraintName="fk_sheet_data_faculty_id"
+                                 baseTableName="sheet_data"
+                                 baseColumnNames="faculty_id"
+                                 referencedTableName="faculty"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+        <addForeignKeyConstraint constraintName="fk_sheet_data_student_id"
+                                 baseTableName="sheet_data"
+                                 baseColumnNames="student_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+        <addForeignKeyConstraint constraintName="fk_sheet_data_faculty_exam_id"
+                                 baseTableName="sheet_data"
+                                 baseColumnNames="faculty_exam_id"
+                                 referencedTableName="faculty_exam"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+    <changeSet id="tag-1.7" author="db@user">
+        <tagDatabase tag="1.7"/>
+    </changeSet>
+</databaseChangeLog>

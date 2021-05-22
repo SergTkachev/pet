@@ -1,0 +1,36 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="create_student_mark" author="db@user">
+        <createTable tableName="student_mark">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="student_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="subject" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mark" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex indexName="student_mark_idx0" tableName="student_mark" unique="false">
+            <column name="student_id"/>
+            <column name="subject"/>
+        </createIndex>
+        <addForeignKeyConstraint constraintName="fk_student_mark_student_id"
+                                 baseTableName="student_mark"
+                                 baseColumnNames="student_id"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+                                 onDelete="CASCADE"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+    <changeSet id="tag-1.3" author="db@user">
+        <tagDatabase tag="1.3"/>
+    </changeSet>
+</databaseChangeLog>

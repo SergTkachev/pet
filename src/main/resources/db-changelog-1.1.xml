@@ -1,0 +1,62 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="create_user" author="db@user">
+        <createTable tableName="user">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(255) COLLATE utf16_bin">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="middle_name" type="varchar(255)" defaultValue="">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="district" type="varchar(255)"/>
+            <column name="city" type="varchar(255)"/>
+            <column name="school" type="varchar(255)"/>
+            <column name="average_mark" type="decimal(15, 2)" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="blocked" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="admin" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex indexName="user_idx0" tableName="user" unique="true">
+            <column name="email"/>
+        </createIndex>
+        <createIndex indexName="user_idx1" tableName="user">
+            <column name="blocked"/>
+        </createIndex>
+        <createIndex indexName="user_idx2" tableName="user">
+            <column name="admin"/>
+        </createIndex>
+        <!--addUniqueConstraint columnNames="email, first_name, middle_name, last_name"
+                             constraintName="u_data"
+                                 tableName="user"/-->
+        <insert tableName="user">
+            <column name="email">admin@admin.com</column>
+            <column name="password">admin</column>
+            <column name="first_name">admin</column>
+            <column name="last_name">admin</column>
+            <column name="admin" valueBoolean="true"/>
+        </insert>
+    </changeSet>
+    <changeSet id="tag-1.1" author="db@user">
+        <tagDatabase tag="1.1"/>
+    </changeSet>
+</databaseChangeLog>

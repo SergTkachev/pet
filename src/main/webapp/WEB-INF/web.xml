@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <display-name>PET</display-name>
+
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.servlet.LoginServlet</servlet-class>
+        <init-param>
+            <param-name>log4j</param-name>
+            <param-value>WEB-INF/log4j.properties</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>localizationServlet</servlet-name>
+        <servlet-class>com.servlet.LocalizationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>localizationServlet</servlet-name>
+        <url-pattern>/localization</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminServlet</servlet-name>
+        <servlet-class>com.servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyCreateServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyCreateServlet</servlet-name>
+        <url-pattern>/facultycreate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyListServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyListServlet</servlet-name>
+        <url-pattern>/facultylist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyUpdateServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyUpdateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyUpdateServlet</servlet-name>
+        <url-pattern>/facultyupdate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyDeleteServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyDeleteServlet</servlet-name>
+        <url-pattern>/facultydelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyExamCreateServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyExamCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyExamCreateServlet</servlet-name>
+        <url-pattern>/facultyexamcreate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultyExamDeleteServlet</servlet-name>
+        <servlet-class>com.servlet.FacultyExamDeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultyExamDeleteServlet</servlet-name>
+        <url-pattern>/facultyexamdelete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signupServlet</servlet-name>
+        <servlet-class>com.servlet.SignupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>signupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>studentListServlet</servlet-name>
+        <servlet-class>com.servlet.StudentListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>studentListServlet</servlet-name>
+        <url-pattern>/studentlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>studentBlockUnblockServlet</servlet-name>
+        <servlet-class>com.servlet.StudentBlockUnblockServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>studentBlockUnblockServlet</servlet-name>
+        <url-pattern>/studentblockunblock</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationListServlet</servlet-name>
+        <servlet-class>com.servlet.RegistrationListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrationListServlet</servlet-name>
+        <url-pattern>/registrationlist</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationCreateServlet</servlet-name>
+        <servlet-class>com.servlet.RegistrationCreateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrationCreateServlet</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>sheetServlet</servlet-name>
+        <servlet-class>com.servlet.SheetServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sheetServlet</servlet-name>
+        <url-pattern>/sheet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>facultySortServlet</servlet-name>
+        <servlet-class>com.servlet.FacultySortServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>facultySortServlet</servlet-name>
+        <url-pattern>/facultysort</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fileUploadServlet</servlet-name>
+        <servlet-class>com.servlet.FileUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileUploadServlet</servlet-name>
+        <url-pattern>/scanupload</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <servlet-class>com.servlet.FileDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileDownloadServlet</servlet-name>
+        <url-pattern>/scandownload</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fileReviewServlet</servlet-name>
+        <servlet-class>com.servlet.FileReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>fileReviewServlet</servlet-name>
+        <url-pattern>/scanreview</url-pattern>
+    </servlet-mapping>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <page-encoding>UTF-8</page-encoding>
+        </jsp-property-group>
+    </jsp-config>
+
+    <filter>
+        <filter-name>mainFilter</filter-name>
+        <filter-class>com.filter.MainFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>mainFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>com.listener.EmailAttributeListener</listener-class>
+    </listener>
+</web-app>
